@@ -1,0 +1,273 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> LearnGit · Hexo</title><meta name="description" content="LearnGit - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/peterjiao" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">LearnGit</h1><div class="post-info">Jan 19, 2016</div><div class="post-content"><ul>
+<li>content<br>{:toc}</li>
+</ul>
+<blockquote>
+<p>学习Git的使用。</p>
+</blockquote>
+<h2 id="安装git略过"><a href="#安装git略过" class="headerlink" title="安装git略过"></a>安装git略过</h2><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><pre><code>mkdir learngit
+cd learngit
+
+git init
+
+vim readme.txt
+
+git add readme.txt 
+git commit -m &quot;wrote a readme file&quot; 
+</code></pre><h2 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h2><pre><code>vim readme.txt
+
+git status 
+git diff readme.txt 
+
+git add readme.txt 
+git status 
+
+git commit -m &quot;add distribute&quot; 
+git status
+</code></pre><h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><pre><code> vim readme.txt
+ git add readme.txt
+ git commit -m &quot;append GPL&quot; 
+
+git log 
+git log --pretty=oneline 
+
+git reset --hard=HEAD^
+cat readme.txt
+
+git reflog 
+
+git reset --hard=1ed051d（id的前几位） 
+</code></pre><h2 id="暂存区"><a href="#暂存区" class="headerlink" title="暂存区"></a>暂存区</h2><pre><code>vim readme.txt
+vim LICENSE 
+
+git status 
+git add readme.txt
+git add LICENSE
+
+git status 
+git commit &quot;understand how stage works&quot;
+
+git status 
+
+工作区-》暂存区-》
+</code></pre><h2 id="再次理解暂存区"><a href="#再次理解暂存区" class="headerlink" title="再次理解暂存区"></a>再次理解暂存区</h2><pre><code>vim readme.txt 
+git add readme.txt
+vim readme.xt 
+git commit -m &quot;git tracks changes&quot; 
+
+#此处只提交了add到暂存区的内容 ，第二次vim的没有提交，因为没有add到暂存区  
+
+test： 
+vim readme.txt 
+git diff readme.txt （有区别）
+git add readme.txt 
+vim readme.txt 
+git diff readme.txt （没区别） 
+git diff HEAD -- readme.txt (有区别) 
+
+所以 diff 比较的是代码区和暂存区有没有区别 ，add之后就没有区别了 
+加上HEAD只有比较的是代码区和版本库中最新版本的比较 
+</code></pre><h2 id="修改撤销"><a href="#修改撤销" class="headerlink" title="修改撤销"></a>修改撤销</h2><pre><code>vim readme.txt 
+git status 
+git checkout -- readme.txt 
+
+vim readme.txt 
+git add readme.txt 
+git status 
+git reset HEAD readme.txt 
+git checkout -- readme.txt 
+
+vim readme.txt 
+git add readme.txt 
+git commit readme.txt -m &quot;hah &quot;
+git reset --HEAD^
+</code></pre><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><pre><code>vim test.txt
+git add test.txt
+git commit -m &quot;add test.txt&quot; 
+
+rm test.txt 
+git status 
+git checkout -- test.txt 
+
+rm test.txt 
+git status 
+git rm （git add test.txt）
+git commit -m &quot;remove test.txt &quot;
+</code></pre><h2 id="关联Github"><a href="#关联Github" class="headerlink" title="关联Github"></a>关联Github</h2><p>要使得刚创建的本地仓库learngit同步到github上</p>
+<ol>
+<li>去github上new一个仓库，起名learngit，其他默认(可以看到，github给出了提示，告诉你如何把本地的仓库同步到这里)  </li>
+<li><p>$ git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:peterjiao/learngit.git </p>
+<p>remote 远程<br>origin 起源 </p>
+<p>$ git push -u origin master<br>push 推送<br>第一次使用-u命令，推送所有master分支到github </p>
+<p>$ git push origin master 之后使用此命令推送即可 </p>
+</li>
+</ol>
+<h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><ol>
+<li>去github上创建了一个新的仓库且自动生成了readme文件，名叫gitskill </li>
+<li>本地要clone这个仓库 </li>
+</ol>
+<p>在一个父级目录：<br>$ git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:peterjiao/gitskills.git<br>即可将远程仓库的内容clone到本地 </p>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><pre><code>git checkout -b dev （等于两条命令 git branch dev;git checkout dev） 
+git branch 
+
+vim test.txt 
+ls
+git add test.txt 
+git commit test.txt -m &quot;branch test&quot; 
+
+git checkout master 
+ls （发现并没有test.txt） 
+git checkout dev
+ls
+git checkout master 
+
+git merge dev 
+ls
+
+git branch -d dev 
+
+git branch 
+</code></pre><h2 id="解决分支冲突"><a href="#解决分支冲突" class="headerlink" title="解决分支冲突"></a>解决分支冲突</h2><pre><code>git checkout -b feature1 
+vim readme.txt&lt;1&gt; 
+git add readme.txt 
+git commit readme.txt 
+
+git checkout master 
+vim readme.txt&lt;2&gt; 
+git add readme.txt 
+git commit readme.txt 
+
+合并被编辑了同一个文件会有冲突 
+git merge feature1 （conflict!!） 
+git status 
+vim readme.txt 
+git add readme.txt 
+git commit -m &quot;conflict fixed &quot; 
+
+git log --graph --pretty=oneline --abbrev-commit
+</code></pre><h2 id="分支合并策略"><a href="#分支合并策略" class="headerlink" title="分支合并策略"></a>分支合并策略</h2><pre><code>在合并分支时 
+git merge --no-ff -m &quot;merge with no-ff&quot; dev 
+如此会在log中新生成一个commit表示合并记录 
+git log --graph --pretty=oneline --abbrev-commit 
+</code></pre><h2 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h2><pre><code>存在一种情况  你正在使用dev分支工作，突然来了一个bug要紧急解决，但是dev分支的工作不能commit到dev分支，如此你就不能切换到master分支去创建bug分支(已经尝试过，只有commit到dev才能切换)。 怎么办呢。 
+可以使用stash命令，将dev分支修改的文件隐藏起来，然后再切换到master分支，创建bug分支，解决bug，合并到master分支，回到dev分支，显隐dev分支上使用stash命令隐藏起来的原来的工作内容 。
+
+git checkout -b dev 
+vim readme.txt
+vim hellworld.java
+git add helloworls.java 
+
+git checkout master !!!
+
+git stash （当前在dev分支） 
+
+git checkout master （good） 
+git checkout -b issue-101 
+
+vim readme.txt （模拟修复bug） 
+git add readme.txt 
+git commit -m &quot;fix bug 101&quot; 
+
+git checkout master 
+git merge --no-ff -m &quot;merged bug fix 101&quot; issue-101 
+git branch -d issue-101 
+
+#ok,bug is fixed 
+
+git checkout dev 
+git status 
+
+git stash list 
+git stash pop（git stash apply ; git stash drop）[包含两步，恢复隐藏的，删除在list中的记录] 
+git stash list 
+
+ps: 
+可以多次使用git stash 隐藏，使用git stash list 查看，然后恢复指定的记录
+git stash apply stash@{0} 
+</code></pre><h2 id="直接删除创建的分支，不合并"><a href="#直接删除创建的分支，不合并" class="headerlink" title="直接删除创建的分支，不合并"></a>直接删除创建的分支，不合并</h2><pre><code>git checkout -b feature2
+vim newfile.txt 
+git add newfile.txt 
+git commit -m &quot;add a newfile&quot; 
+
+git checkout master 
+git branch -d feature2 !!!error 
+git branch -D feture2 !!!good 
+</code></pre><h2 id="分支冲突"><a href="#分支冲突" class="headerlink" title="分支冲突"></a>分支冲突</h2><p>两个不同的人不同的机器，同时修改同一个分支的同一个文件，同时推到了远程库，第二个人会报冲突，需要先处理冲突，然后推到远程库 </p>
+<pre><code>git remote 
+git remote -v 
+
+git checkout -b dev
+vim hello.java 
+git add hello.java
+git commit hello.java -m &quot;&quot;
+git push origin dev {git push origin &lt;branch-name&gt;} 
+
+#以上1号机创建并向远程仓库推送了dev分支 
+
+#在另一个目录 2号机 
+git clone git@github.com:peterjiao/learngit.git 
+(默认clone是master分支，没有dev分支 ) 
+
+git checkout -b dev origin/dev （此处是两个各命令，创建了dev分支，关联了远程库的dev分支）
+(
+git checkout -b dev //创建，切换到dev
+git branch --set-upstream-to=origin/dev dev //本机dev关联远程库dev
+)
+vim hello.java 
+git add hello.java
+git commit hello.java -m &quot;&quot;
+git push origin dev 
+#推送到了远程仓库dev 
+
+#此时1号机 
+vim hello.java 
+git add hello.java
+git commit hello.java -m &quot;&quot;
+git push origin dev 
+#报错，冲突。需要使用pull，将远程库同步到本地，然后合并冲突，再提交
+git pull 
+#报错，本地库的dev还没有和远程库的dev分支同步需要先同步，或者使用git pull &lt;remote&gt; &lt;branch&gt;,指定要同步的库和分支 
+git branch --set-upstream-to=origin/dev dev 
+git pull //成功pull
+vim hello.java
+git add hello.java
+git commit hello.java 
+git push origin dev 
+</code></pre><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><pre><code>git branch 
+git checkout master 
+git tag v1.0 {git tag &lt;name&gt;} 
+git tag {查看所有标签} 
+
+#给历史commit打标签
+git log --pretty=oneline --abbrev-commit 
+git tag v0.9 xxxx 
+git tag 
+git show v0.9 {git show &lt;tagname&gt;} 
+
+#带有说明comment的标签 
+git tag -a v0.1 -m &quot;version 0.1 released&quot; xxxxxx 
+git show v0.1 
+
+#私钥签名的标签 
+git tag -s v0.2 -m &quot;signed v0.2 released&quot; xxxxxx 
+git show v0.2 
+
+#删除标签 
+git tag -d v0.1 
+
+#推送标签到远程库 
+git push origin v1.0 {git push origin &lt;tagname&gt;} 
+git push origin --tags{一次性推送所有tag} 
+
+#删除远程库中的标签 
+git tag -d v0.2 
+git push origin :refs/tags/v0.2 
+</code></pre><p>本文是看了<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰的官方网站</a>中关于Git所做的笔记</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/08/11/2016-08-11-Java-Collection/" class="prev">prev_post</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'peterjiao';
+var disqus_identifier = '2016/01/19/2016-01-19-LearnGit/';
+var disqus_title = 'LearnGit';
+var disqus_url = 'http://yoursite.com/2016/01/19/2016-01-19-LearnGit/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//peterjiao.disqus.com/count.js" async></script><div class="copyright"><p>© 2014 - 2018 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

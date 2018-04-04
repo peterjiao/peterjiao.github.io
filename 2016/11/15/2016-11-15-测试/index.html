@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 测试--测试框架学习 · Hexo</title><meta name="description" content="测试--测试框架学习 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/peterjiao" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">测试--测试框架学习</h1><div class="post-info">Nov 15, 2016</div><div class="post-content"><ul>
+<li>content<br>{:toc}</li>
+</ul>
+<blockquote>
+<p>测试框架学习。</p>
+</blockquote>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="被测系统-SUT-System-Under-Test"><a href="#被测系统-SUT-System-Under-Test" class="headerlink" title="被测系统 SUT (System Under Test)"></a>被测系统 SUT (System Under Test)</h4><p>表示正在测试的系统，目的是测试系统能否正确操作。</p>
+<ul>
+<li><p>Dummy Object </p>
+<p>泛指在测试中必须传入的对象。</p>
+</li>
+<li><p>Test Stub</p>
+<p>测试桩，用来接收SUT内部的间接输入，并返回特定的值给SUT。</p>
+</li>
+<li><p>Test Spy</p>
+<p>像一个间谍，安插在SUT内部，负责将SUT的间接输出传到外部。</p>
+</li>
+<li><p>Mock Object</p>
+<p>和Spy类似，且Mock还负责对输出进行验证。</p>
+</li>
+<li><p>Fake Object</p>
+</li>
+</ul>
+<h4 id="测试夹具-Test-Fixture"><a href="#测试夹具-Test-Fixture" class="headerlink" title="测试夹具 Test Fixture"></a>测试夹具 Test Fixture</h4><p>即 测试运行程序，会在运行目标测试方法之前自动初始化、资源回收的工作。</p>
+<h4 id="测试用例-Test-Case"><a href="#测试用例-Test-Case" class="headerlink" title="测试用例 Test Case"></a>测试用例 Test Case</h4><h4 id="测试套件-Test-Suite"><a href="#测试套件-Test-Suite" class="headerlink" title="测试套件 Test Suite"></a>测试套件 Test Suite</h4><p>如果每次只能运行一个测试用例，则和传统的使用<code>main()</code>方法进行测试没有区别。手工去一个个执行测试用例，非常繁琐低效。测试套件，即将多个测试用例组装成一个测试套件，测试套件批量运行测试用例。</p>
+<h4 id="断言-Assertions"><a href="#断言-Assertions" class="headerlink" title="断言 Assertions"></a>断言 Assertions</h4><h2 id="JUnit-4"><a href="#JUnit-4" class="headerlink" title="JUnit 4"></a>JUnit 4</h2><p>各个方法之间相互独立 ，一个方法的失败不会导致别的方法失败，方法之间不存在相互依赖的关系，彼此独立。</p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>类级初始化资源处理、【方法级初始化资源处理、执行测试用例中的方法、方法级销毁资源处理】、类级销毁资源处理。</p>
+<p>类级别的初始化和销毁，一个测试用例类中只执行一次。</p>
+<p>方法级别初始化和销毁，执行测试用例中每个测试方法中都会执行一次，以防止测试方法相互间的影响。</p>
+<p>测试类中，支持有多个初始化或销毁方法。执行顺序是：多个初始化方法，由后向前。多个销毁方法，由前向后。 </p>
+<h3 id="使用-JUnit-4"><a href="#使用-JUnit-4" class="headerlink" title="使用 JUnit 4"></a>使用 JUnit 4</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">maven:</span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h4><p><code>@Test</code>标注。</p>
+<p><code>@BeforeClass</code></p>
+<p><code>@Before</code></p>
+<p><code>@Test</code></p>
+<p><code>@After</code></p>
+<p><code>@AfterClass</code></p>
+<p><code>@Test(expected=NullPointerException.class)</code></p>
+<p>超时测试</p>
+<p><code>@Test(timeout=10)</code></p>
+<p>参数化测试</p>
+<p><code>@RunWith(Parameterized.class)</code></p>
+<p>测试运行器</p>
+<p>通过<code>@RunWith(Xxx.class)</code>指定</p>
+<p>所有测试方法都由测试运行器负责执行，且JUnit默认使用<code>BlockJUnit4ClassRunner</code>，且可以自己定制运行器。 一般情况下默认的足够，但当使用一些高级特性时，如 从参数化测试、套件测试时，需要显示指定所用的运行器。 通过<code>@RunWith(Xxx.class)</code>指定。</p>
+<p>测试套件</p>
+<p><code>@RunWith(Suite.class)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.junit.runners.Suite;</span><br><span class="line"><span class="keyword">import</span> org.junit.runners.Suite.SuiteClasses;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(Suite.class)</span><br><span class="line"><span class="meta">@SuiteClasses</span>(PersonTest.class,Xxx.class,Xxxx.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Junit4SuiteTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Junit 4 断言</p>
+<h2 id="模拟利器-Mockito"><a href="#模拟利器-Mockito" class="headerlink" title="模拟利器 Mockito"></a>模拟利器 Mockito</h2></div></article></div></main><footer><div class="paginator"><a href="/2016/12/12/2016-12-12-流--Java IO,NIO,AIO: Netty/" class="prev">prev_post</a><a href="/2016/11/02/2016-11-02-工具包--Log4j/" class="next">next_post</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'peterjiao';
+var disqus_identifier = '2016/11/15/2016-11-15-测试/';
+var disqus_title = '测试--测试框架学习';
+var disqus_url = 'http://yoursite.com/2016/11/15/2016-11-15-测试/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//peterjiao.disqus.com/count.js" async></script><div class="copyright"><p>© 2014 - 2018 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Git常用命令总结 · Hexo</title><meta name="description" content="Git常用命令总结 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/peterjiao" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Git常用命令总结</h1><div class="post-info">Apr 17, 2017</div><div class="post-content"><ul>
+<li>content<br>{:toc}</li>
+</ul>
+<blockquote>
+<p>Git常用命令总结。</p>
+</blockquote>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><h3 id="查看本地分支"><a href="#查看本地分支" class="headerlink" title="查看本地分支"></a>查看本地分支</h3><p><code>git branch</code></p>
+<h3 id="查看远程分支"><a href="#查看远程分支" class="headerlink" title="查看远程分支"></a>查看远程分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -r</span><br></pre></td></tr></table></figure>
+<h3 id="查看所有分支-本地和远程"><a href="#查看所有分支-本地和远程" class="headerlink" title="查看所有分支(本地和远程)"></a>查看所有分支(本地和远程)</h3><p><code>$ git branch -a</code></p>
+<p><code>git branch -av</code></p>
+<h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><h3 id="clone远程非主分支"><a href="#clone远程非主分支" class="headerlink" title="clone远程非主分支"></a>clone远程非主分支</h3><p><code>git checkout origin/&lt;branchName&gt;</code></p>
+<p><code>git checkout -b &lt;localBranchName&gt; origin/&lt;remoteBranchName&gt;</code></p>
+<p>使用<code>-t</code>参数，默认建立一个和远程分支同名的分支</p>
+<p><code>git checkout -t origin/&lt;remoteBranchName&gt;</code></p>
+<h3 id="clone远程主分支"><a href="#clone远程主分支" class="headerlink" title="clone远程主分支"></a>clone远程主分支</h3><p><code>git clone &lt;url&gt;</code></p>
+<h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><h3 id="重命名本地分支"><a href="#重命名本地分支" class="headerlink" title="重命名本地分支"></a>重命名本地分支</h3><p><code>git branch -m devel develop</code></p>
+<h3 id="重命名远程分支"><a href="#重命名远程分支" class="headerlink" title="重命名远程分支"></a>重命名远程分支</h3><p>1.删除远程分支2.重命名本地分支3.推</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#查看</span><br><span class="line">$ git branch -av</span><br><span class="line">* feature-renames</span><br><span class="line">remotes/origin/feature-renames</span><br><span class="line">#删除</span><br><span class="line">git push --delete origin feature-renames</span><br><span class="line">#重命名本地</span><br><span class="line">git branch -m feature-renames feature-rename</span><br><span class="line">#推</span><br><span class="line">git push origin feature-rename</span><br></pre></td></tr></table></figure>
+<h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><h3 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h3><h4 id="删除merge了的分支"><a href="#删除merge了的分支" class="headerlink" title="删除merge了的分支"></a>删除merge了的分支</h4><p><code>git branch -d &lt;banchName&gt;</code></p>
+<h4 id="删除分支无论是否merge"><a href="#删除分支无论是否merge" class="headerlink" title="删除分支无论是否merge"></a>删除分支无论是否merge</h4><p><code>git branch -D &lt;banchName&gt;</code></p>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><p>推送一个空的分支到远程分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :&lt;branchName&gt;</span><br></pre></td></tr></table></figure>
+<p><code>git push origin --delete &lt;branchName&gt;</code></p>
+<h3 id="删除本地分支中在远程没有对应的分支"><a href="#删除本地分支中在远程没有对应的分支" class="headerlink" title="删除本地分支中在远程没有对应的分支"></a>删除本地分支中在远程没有对应的分支</h3><blockquote>
+<p>1.创建b1分支 2. push到远程分支 3.其他人fetch或pull了b1分支 4.删除远程的b1分支5.但是其他人是不会自动删除b1分支的，即使再次fetch或者pull</p>
+</blockquote>
+<p>使用 <code>git remote show &lt;remoteName&gt;</code>可以观察到本地分支和远程分支差别</p>
+<p>根据提示 使用 <code>git remote prune &lt;remoteName&gt;</code>会？</p>
+<p><code>git fetch -p</code></p>
+<p>获取存在的最新，不存在则删除本地分支！</p>
+<h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><h1 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h1><p><code>git push origin :refs/tags/&lt;tagname&gt;</code></p>
+<p><code>git push origin --delete tag &lt;tagname&gt;</code></p>
+<p><code>git tag -d &lt;tagname&gt;</code></p>
+<p><code>git push --tags</code></p>
+<p><code>git fetch origin tag &lt;tagname&gt;</code></p>
+<h1 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h1><p>从 来源 到 去处</p>
+<h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><p><code>git fetch origin &lt;remoteBranchName&gt;</code></p>
+<p><code>git fetch origin &lt;remoteBranchName&gt;:&lt;localBranchName&gt;</code></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/04/17/2017-04-17-use-gitlab-github-together/" class="prev">prev_post</a><a href="/2017/02/17/2017-02-18-如何写年终总结/" class="next">next_post</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'peterjiao';
+var disqus_identifier = '2017/04/17/2017-04-17-git-command/';
+var disqus_title = 'Git常用命令总结';
+var disqus_url = 'http://yoursite.com/2017/04/17/2017-04-17-git-command/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//peterjiao.disqus.com/count.js" async></script><div class="copyright"><p>© 2014 - 2018 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

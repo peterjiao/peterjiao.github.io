@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 集合 · Hexo</title><meta name="description" content="集合 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Hexo"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/peterjiao" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">集合</h1><div class="post-info">Aug 11, 2016</div><div class="post-content"><ul>
+<li>content<br>{:toc}</li>
+</ul>
+<blockquote>
+<p>Java集合框架的使用。</p>
+</blockquote>
+<h1 id="数据-查找-排序"><a href="#数据-查找-排序" class="headerlink" title="数据+查找+排序"></a>数据+查找+排序</h1><p>随机访问、索引？？</p>
+<blockquote>
+<p>不同的数据结构，是为了选择合适的存储数据集的方式，有的情况下需要排序快，有的情况下需要查找快，有的情况下只需要头和尾的数据。 </p>
+</blockquote>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>int</p>
+<p>double</p>
+<p>char</p>
+<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><blockquote>
+<p>存储一系列数据(基本数据、引用数据)的结构。</p>
+</blockquote>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="集合-1"><a href="#集合-1" class="headerlink" title="集合"></a>集合</h4><p>List,Set,Map,数组Array</p>
+<p>Collection：List列表、Set集</p>
+<p>Map：HashMap、Hashtable、TreeMap</p>
+<p>集合是 单列集合</p>
+<p>Collection </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> <span class="comment">//向集合中添加元素， 添加成功返回true，添加失败(集合中已经有此元素如set)返回false。</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span>  <span class="comment">//将一个集合中所有元素添加到此集合</span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span>  <span class="comment">// 清空所有元素</span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span> <span class="comment">// 	集合中是否包含目标元素</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;?&gt; c)</span>  <span class="comment">// 集合是否包含指定集合中的所有元素</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> <span class="comment">//判断两个集合是否相等，可覆写。 默认情况下：1.有序集合，必须 元素个数相等，元素顺序相同，相同位置的元素对应相等，返回 true。 2.无序集合，必须元素个数相等，且一个集合中的任意一个元素都在另一个集合中有相同的，返回true。</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span>  <span class="comment">// </span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> <span class="comment">// 集合中没有元素，返回true</span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span> <span class="comment">// 返回集合中所有元素的迭代函数，有序返回有序，无序则无序。 </span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> <span class="comment">//删除指定目标相等的元素，返回true，若未找到，则返回false。 对于有重复元素的情况下，只会删除第一个对应的。 </span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span> <span class="comment">// 删除集合中和指定集合相等的所有元素，重复情况也删除，如果集合有删除(即使只有1个对应的)，返回true，没有删除任何元素，返回false。 </span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span> <span class="comment">// 和removeAll相反，删除集合中不包含在指定集合内的元素，即和指定集合不同的元素都删除。 </span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> <span class="comment">// 返回集合元素个数，大小不超过 0x7fffffff。 </span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">Object[] <span class="title">toArray</span><span class="params">()</span> <span class="comment">//返回包含集合中所有元素的数组，集合有序则返回的数组也是同样的顺序。 </span></span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function">&lt;T&gt; T[] <span class="title">toArray</span><span class="params">(T[] a)</span> <span class="comment">//以泛型的形式指定返回的数组的类型。</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="List"><a href="#List" class="headerlink" title="List"></a>List</h5><blockquote>
+<p>元素是有序的，可重复的，可以有null元素的存在</p>
+</blockquote>
+<p>是Collection的直接接口，</p>
+<h6 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h6><p>动态数组，默认初始的数组大小是10，每次动态操作(添加、删除元素)列表后，都会检查是否需要扩容，所以在创建数组列表时，最好手动指定初始化的大小。</p>
+<p>操作ArrayList等同于操作数组。</p>
+<p>所以：</p>
+<p>随机访问快，添加删除元素慢，非同步。 </p>
+<h6 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h6><p>双向链表，因为是链表实现，所以比ArrayList多了插入、删除首部、尾部等方法。 </p>
+<p>不能随机访问，插入，删除操作快，非同步。</p>
+<p>可用：<code>List list = Collections.synchronizedList(new LinkedList(…));</code></p>
+<h6 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h6><p>是线程同步的ArrayList</p>
+<h6 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h6><p>继承自Vector，是后进先出的堆栈。</p>
+<p>增加push，pop、search、peek等堆栈方法</p>
+<h5 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h5><blockquote>
+<p>元素是无序的、不可重复的。可以有null元素的存在，但仅支持一个(不重复)</p>
+</blockquote>
+<h6 id="EnumSet"><a href="#EnumSet" class="headerlink" title="EnumSet"></a>EnumSet</h6><p>所有元素都是枚举类型</p>
+<h6 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h6><p>是value为null的HashMap。 </p>
+<h6 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h6><p>内部用TreeMap实现，</p>
+<h5 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h5><blockquote>
+<p>和List、Set不同，由一系列键值对组成的集合，没有继承Collection。在Map中保证了key到value的一一对应关系，一个key对应一个value，所以不能存在相同的key，key不重复。 </p>
+</blockquote>
+<p>Hashtable</p>
+<p>​    Properties</p>
+<p>HashMap</p>
+<p>​    LinkedHashMap</p>
+<p>TreeMap</p>
+<p>ConcurrentHashMap</p>
+<p>EnumMap</p>
+<h6 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h6><p>哈希表实现，内部有一个数组，通过函数将哈希值转为数组索引，如果有相同，使用散列表，单向链表存储。只有hashmap允许存空值为key或者value。</p>
+<h6 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h6><p>红黑树实现，且实现了SortedMap接口，可排序。 </p>
+<h6 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h6><p>哈希表，字典。线程安全，推荐用ConcurrentHashMap替换。</p>
+<h5 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h5><p>队列，继承自Collection.</p>
+<p>主要分两类：</p>
+<p>1.阻塞式队列(BlockingQueue)，如果队列满了再插入会抛出异常<code>ArrayBlockQueue、PriorityBlockingQueue、LinkedBlockingQueue</code></p>
+<p>2.双端队列(Deque)，支持在头尾两端插入、移除元素。<code>ArrayDeque、LinkedBlockingDeque、LinkedList</code>。</p>
+<h6 id="Vector和ArrayList"><a href="#Vector和ArrayList" class="headerlink" title="Vector和ArrayList"></a>Vector和ArrayList</h6><ol>
+<li>vector是线程同步的，线程安全的。ArrayList不是。如果不考虑多线程环境，ArrayList效率比较高。</li>
+<li>数组动态扩容时，Vector每次增加原数组的100%，ArrayList是50%。 </li>
+</ol>
+<h6 id="ArrayList和LinkedList"><a href="#ArrayList和LinkedList" class="headerlink" title="ArrayList和LinkedList"></a>ArrayList和LinkedList</h6><ol>
+<li>ArrayList是动态数组，LinkedList是双向链表。</li>
+<li>对于随机访问，前者优于后者，因为后者要移动指针。</li>
+<li>对于新增和删除操作，后者比较优势，因为前者要移动数据。</li>
+<li>ArrayList每移动一条数据，要移动插入点之后的所有数据。</li>
+</ol>
+<p>将ArrayList作为首选，只有当程序频繁插入和删除List时，在考虑LinkedList。 </p>
+<h6 id="HashMap和TreeMap"><a href="#HashMap和TreeMap" class="headerlink" title="HashMap和TreeMap"></a>HashMap和TreeMap</h6><ol>
+<li>HashMap是根据哈希表，TreeMap是根据红黑树。</li>
+<li>HashMap通过hashcode访问速度非常快，TreeMap中所有元素都保持着某种固定顺序(二叉搜索树是有序的)。</li>
+<li>在Map中插入、删除和定位元素，hashmap是最好的选择。 如果要按自然顺序或自定义顺序遍历键，TreeMap。</li>
+</ol>
+<h6 id="Hashtable和Hashmap"><a href="#Hashtable和Hashmap" class="headerlink" title="Hashtable和Hashmap"></a>Hashtable和Hashmap</h6><ol>
+<li>hashtable是线程安全的，hashmap不是。</li>
+<li>hashmap可以存储null，table不可以。</li>
+</ol>
+<h6 id="TreeMap和LinkedHashMap"><a href="#TreeMap和LinkedHashMap" class="headerlink" title="TreeMap和LinkedHashMap"></a>TreeMap和LinkedHashMap</h6><ol>
+<li>都是有序的，但是LinkedHashMap只允许保存录入时的顺序或者是访问顺序，需要手动进行排序。而TreeMap可以指定Compar接口比较大小，自动实现排序，默认是key的字母大小排序。</li>
+</ol>
+<h4 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h4><p>结构中数据元素之间存在一对一的关系</p>
+<p>Linked list</p>
+<h4 id="树形结构"><a href="#树形结构" class="headerlink" title="树形结构"></a>树形结构</h4><p>结构中数据元素之间存在一对多的关系</p>
+<p>总之，当我们看到一个树形数据结构，主要应该考察以上两个方面：<br>①它是如何建立索引的？<br>②它是如何维持稳定的？</p>
+<p>二分查找算法</p>
+<h4 id="图-网-状结构"><a href="#图-网-状结构" class="headerlink" title="图(网)状结构"></a>图(网)状结构</h4><p>结构中数据元素之间存在多对多的关系</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>n中排序方法</p>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>线性表(单向链表、双向链表)、二叉树、平衡二叉树、红黑树 </p>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/09/02/2016-09-02-Spring--Bean的生命周期/" class="prev">prev_post</a><a href="/2016/01/19/2016-01-19-LearnGit/" class="next">next_post</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'peterjiao';
+var disqus_identifier = '2016/08/11/2016-08-11-Java-Collection/';
+var disqus_title = '集合';
+var disqus_url = 'http://yoursite.com/2016/08/11/2016-08-11-Java-Collection/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//peterjiao.disqus.com/count.js" async></script><div class="copyright"><p>© 2014 - 2018 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
