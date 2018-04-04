@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://peterjiao.com/"/>
   <updated>2018-04-04T05:14:35.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://peterjiao.com/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test_my_site</title>
-    <link href="http://yoursite.com/2018/04/04/test-my-site/"/>
-    <id>http://yoursite.com/2018/04/04/test-my-site/</id>
+    <link href="http://peterjiao.com/2018/04/04/test-my-site/"/>
+    <id>http://peterjiao.com/2018/04/04/test-my-site/</id>
     <published>2018-04-04T04:26:45.000Z</published>
     <updated>2018-04-04T05:14:35.000Z</updated>
     
@@ -41,8 +41,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/04/04/hello-world/"/>
-    <id>http://yoursite.com/2018/04/04/hello-world/</id>
+    <link href="http://peterjiao.com/2018/04/04/hello-world/"/>
+    <id>http://peterjiao.com/2018/04/04/hello-world/</id>
     <published>2018-04-04T04:24:00.000Z</published>
     <updated>2018-04-04T04:24:00.000Z</updated>
     
@@ -62,8 +62,8 @@
   
   <entry>
     <title>怎样在一台电脑上同时使用公司 GitLab 和 Github 的服务</title>
-    <link href="http://yoursite.com/2017/04/17/2017-04-17-use-gitlab-github-together/"/>
-    <id>http://yoursite.com/2017/04/17/2017-04-17-use-gitlab-github-together/</id>
+    <link href="http://peterjiao.com/2017/04/17/2017-04-17-use-gitlab-github-together/"/>
+    <id>http://peterjiao.com/2017/04/17/2017-04-17-use-gitlab-github-together/</id>
     <published>2017-04-17T09:06:05.000Z</published>
     <updated>2017-04-18T10:34:08.000Z</updated>
     
@@ -84,17 +84,17 @@
     
     </summary>
     
-      <category term="Tools" scheme="http://yoursite.com/categories/Tools/"/>
+      <category term="Tools" scheme="http://peterjiao.com/categories/Tools/"/>
     
     
-      <category term="Git Tools" scheme="http://yoursite.com/tags/Git-Tools/"/>
+      <category term="Git Tools" scheme="http://peterjiao.com/tags/Git-Tools/"/>
     
   </entry>
   
   <entry>
     <title>Git常用命令总结</title>
-    <link href="http://yoursite.com/2017/04/17/2017-04-17-git-command/"/>
-    <id>http://yoursite.com/2017/04/17/2017-04-17-git-command/</id>
+    <link href="http://peterjiao.com/2017/04/17/2017-04-17-git-command/"/>
+    <id>http://peterjiao.com/2017/04/17/2017-04-17-git-command/</id>
     <published>2017-04-17T08:06:05.000Z</published>
     <updated>2017-04-18T10:43:06.000Z</updated>
     
@@ -115,17 +115,17 @@
     
     </summary>
     
-      <category term="Tools" scheme="http://yoursite.com/categories/Tools/"/>
+      <category term="Tools" scheme="http://peterjiao.com/categories/Tools/"/>
     
     
-      <category term="Git Tools" scheme="http://yoursite.com/tags/Git-Tools/"/>
+      <category term="Git Tools" scheme="http://peterjiao.com/tags/Git-Tools/"/>
     
   </entry>
   
   <entry>
     <title>如何写、写好年终总结？</title>
-    <link href="http://yoursite.com/2017/02/17/2017-02-18-%E5%A6%82%E4%BD%95%E5%86%99%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/02/17/2017-02-18-如何写年终总结/</id>
+    <link href="http://peterjiao.com/2017/02/17/2017-02-18-%E5%A6%82%E4%BD%95%E5%86%99%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <id>http://peterjiao.com/2017/02/17/2017-02-18-如何写年终总结/</id>
     <published>2017-02-17T08:25:20.000Z</published>
     <updated>2017-02-18T09:53:10.000Z</updated>
     
@@ -146,17 +146,17 @@
     
     </summary>
     
-      <category term="工作文档" scheme="http://yoursite.com/categories/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/"/>
+      <category term="工作文档" scheme="http://peterjiao.com/categories/%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/"/>
     
     
-      <category term="年终总结 工作文档" scheme="http://yoursite.com/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93-%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/"/>
+      <category term="年终总结 工作文档" scheme="http://peterjiao.com/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93-%E5%B7%A5%E4%BD%9C%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
   <entry>
     <title>数据库--MySQL默认配置文件备份</title>
-    <link href="http://yoursite.com/2017/01/10/2017-01-10-%E6%95%B0%E6%8D%AE%E5%BA%93--MySQL%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/01/10/2017-01-10-数据库--MySQL 配置文件/</id>
+    <link href="http://peterjiao.com/2017/01/10/2017-01-10-%E6%95%B0%E6%8D%AE%E5%BA%93--MySQL%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
+    <id>http://peterjiao.com/2017/01/10/2017-01-10-数据库--MySQL 配置文件/</id>
     <published>2017-01-10T12:36:55.000Z</published>
     <updated>2017-02-08T07:28:22.000Z</updated>
     
@@ -177,17 +177,17 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="http://peterjiao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="数据库 MySQL" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-MySQL/"/>
+      <category term="数据库 MySQL" scheme="http://peterjiao.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-MySQL/"/>
     
   </entry>
   
   <entry>
     <title>数据库--并发</title>
-    <link href="http://yoursite.com/2017/01/09/2017-01-09-%E6%95%B0%E6%8D%AE%E5%BA%93--%E5%B9%B6%E5%8F%91/"/>
-    <id>http://yoursite.com/2017/01/09/2017-01-09-数据库--并发/</id>
+    <link href="http://peterjiao.com/2017/01/09/2017-01-09-%E6%95%B0%E6%8D%AE%E5%BA%93--%E5%B9%B6%E5%8F%91/"/>
+    <id>http://peterjiao.com/2017/01/09/2017-01-09-数据库--并发/</id>
     <published>2017-01-09T12:36:05.000Z</published>
     <updated>2017-02-08T07:28:56.000Z</updated>
     
@@ -208,17 +208,17 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="http://peterjiao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="数据库 MySQL" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-MySQL/"/>
+      <category term="数据库 MySQL" scheme="http://peterjiao.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-MySQL/"/>
     
   </entry>
   
   <entry>
     <title>字符集，编码</title>
-    <link href="http://yoursite.com/2016/12/12/2016-12-12-%E5%8E%9F%E7%90%86--%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
-    <id>http://yoursite.com/2016/12/12/2016-12-12-原理--字符编码/</id>
+    <link href="http://peterjiao.com/2016/12/12/2016-12-12-%E5%8E%9F%E7%90%86--%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
+    <id>http://peterjiao.com/2016/12/12/2016-12-12-原理--字符编码/</id>
     <published>2016-12-12T14:09:25.000Z</published>
     <updated>2017-02-08T07:27:40.000Z</updated>
     
@@ -239,17 +239,17 @@
     
     </summary>
     
-      <category term="IO/NIO" scheme="http://yoursite.com/categories/IO-NIO/"/>
+      <category term="IO/NIO" scheme="http://peterjiao.com/categories/IO-NIO/"/>
     
     
-      <category term="IO 字符集" scheme="http://yoursite.com/tags/IO-%E5%AD%97%E7%AC%A6%E9%9B%86/"/>
+      <category term="IO 字符集" scheme="http://peterjiao.com/tags/IO-%E5%AD%97%E7%AC%A6%E9%9B%86/"/>
     
   </entry>
   
   <entry>
     <title>Java IO,NIO,AIO</title>
-    <link href="http://yoursite.com/2016/12/12/2016-12-12-%E6%B5%81--Java%20IO,NIO,AIO:%20Netty/"/>
-    <id>http://yoursite.com/2016/12/12/2016-12-12-流--Java IO,NIO,AIO: Netty/</id>
+    <link href="http://peterjiao.com/2016/12/12/2016-12-12-%E6%B5%81--Java%20IO,NIO,AIO:%20Netty/"/>
+    <id>http://peterjiao.com/2016/12/12/2016-12-12-流--Java IO,NIO,AIO: Netty/</id>
     <published>2016-12-12T13:16:19.000Z</published>
     <updated>2018-04-04T06:37:49.000Z</updated>
     
@@ -270,17 +270,17 @@
     
     </summary>
     
-      <category term="IO/NIO" scheme="http://yoursite.com/categories/IO-NIO/"/>
+      <category term="IO/NIO" scheme="http://peterjiao.com/categories/IO-NIO/"/>
     
     
-      <category term="IO/NIO IO" scheme="http://yoursite.com/tags/IO-NIO-IO/"/>
+      <category term="IO/NIO IO" scheme="http://peterjiao.com/tags/IO-NIO-IO/"/>
     
   </entry>
   
   <entry>
     <title>测试--测试框架学习</title>
-    <link href="http://yoursite.com/2016/11/15/2016-11-15-%E6%B5%8B%E8%AF%95/"/>
-    <id>http://yoursite.com/2016/11/15/2016-11-15-测试/</id>
+    <link href="http://peterjiao.com/2016/11/15/2016-11-15-%E6%B5%8B%E8%AF%95/"/>
+    <id>http://peterjiao.com/2016/11/15/2016-11-15-测试/</id>
     <published>2016-11-15T12:16:15.000Z</published>
     <updated>2017-02-08T07:33:36.000Z</updated>
     
@@ -301,17 +301,17 @@
     
     </summary>
     
-      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="http://peterjiao.com/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="http://peterjiao.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>工具--Log4j工具</title>
-    <link href="http://yoursite.com/2016/11/02/2016-11-02-%E5%B7%A5%E5%85%B7%E5%8C%85--Log4j/"/>
-    <id>http://yoursite.com/2016/11/02/2016-11-02-工具包--Log4j/</id>
+    <link href="http://peterjiao.com/2016/11/02/2016-11-02-%E5%B7%A5%E5%85%B7%E5%8C%85--Log4j/"/>
+    <id>http://peterjiao.com/2016/11/02/2016-11-02-工具包--Log4j/</id>
     <published>2016-11-02T12:36:01.000Z</published>
     <updated>2017-02-08T07:30:02.000Z</updated>
     
@@ -332,17 +332,17 @@
     
     </summary>
     
-      <category term="框架和包" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
+      <category term="框架和包" scheme="http://peterjiao.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
     
     
-      <category term="Log4j" scheme="http://yoursite.com/tags/Log4j/"/>
+      <category term="Log4j" scheme="http://peterjiao.com/tags/Log4j/"/>
     
   </entry>
   
   <entry>
     <title>Mybatis--基础</title>
-    <link href="http://yoursite.com/2016/11/02/2016-11-02-Mybatis--%E5%9F%BA%E7%A1%80/"/>
-    <id>http://yoursite.com/2016/11/02/2016-11-02-Mybatis--基础/</id>
+    <link href="http://peterjiao.com/2016/11/02/2016-11-02-Mybatis--%E5%9F%BA%E7%A1%80/"/>
+    <id>http://peterjiao.com/2016/11/02/2016-11-02-Mybatis--基础/</id>
     <published>2016-11-02T12:06:05.000Z</published>
     <updated>2017-02-08T07:29:24.000Z</updated>
     
@@ -363,17 +363,17 @@
     
     </summary>
     
-      <category term="框架和包" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
+      <category term="框架和包" scheme="http://peterjiao.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
     
     
-      <category term="Mybatis" scheme="http://yoursite.com/tags/Mybatis/"/>
+      <category term="Mybatis" scheme="http://peterjiao.com/tags/Mybatis/"/>
     
   </entry>
   
   <entry>
     <title>缓存--消息队列</title>
-    <link href="http://yoursite.com/2016/10/15/2016-10-15-%E7%BC%93%E5%AD%98--%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
-    <id>http://yoursite.com/2016/10/15/2016-10-15-缓存--消息队列/</id>
+    <link href="http://peterjiao.com/2016/10/15/2016-10-15-%E7%BC%93%E5%AD%98--%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    <id>http://peterjiao.com/2016/10/15/2016-10-15-缓存--消息队列/</id>
     <published>2016-10-15T12:46:00.000Z</published>
     <updated>2017-02-08T07:33:10.000Z</updated>
     
@@ -394,17 +394,17 @@
     
     </summary>
     
-      <category term="缓存" scheme="http://yoursite.com/categories/%E7%BC%93%E5%AD%98/"/>
+      <category term="缓存" scheme="http://peterjiao.com/categories/%E7%BC%93%E5%AD%98/"/>
     
     
-      <category term="消息队列" scheme="http://yoursite.com/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+      <category term="消息队列" scheme="http://peterjiao.com/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>redis的使用</title>
-    <link href="http://yoursite.com/2016/10/15/2016-10-15-%E7%BC%93%E5%AD%98-redis/"/>
-    <id>http://yoursite.com/2016/10/15/2016-10-15-缓存-redis/</id>
+    <link href="http://peterjiao.com/2016/10/15/2016-10-15-%E7%BC%93%E5%AD%98-redis/"/>
+    <id>http://peterjiao.com/2016/10/15/2016-10-15-缓存-redis/</id>
     <published>2016-10-15T10:26:20.000Z</published>
     <updated>2017-02-08T07:32:42.000Z</updated>
     
@@ -424,17 +424,17 @@
     
     </summary>
     
-      <category term="缓存" scheme="http://yoursite.com/categories/%E7%BC%93%E5%AD%98/"/>
+      <category term="缓存" scheme="http://peterjiao.com/categories/%E7%BC%93%E5%AD%98/"/>
     
     
-      <category term="缓存" scheme="http://yoursite.com/tags/%E7%BC%93%E5%AD%98/"/>
+      <category term="缓存" scheme="http://peterjiao.com/tags/%E7%BC%93%E5%AD%98/"/>
     
   </entry>
   
   <entry>
     <title>Spring的XML配置</title>
-    <link href="http://yoursite.com/2016/09/02/2016-09-02-Spring-XML%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2016/09/02/2016-09-02-Spring-XML配置/</id>
+    <link href="http://peterjiao.com/2016/09/02/2016-09-02-Spring-XML%E9%85%8D%E7%BD%AE/"/>
+    <id>http://peterjiao.com/2016/09/02/2016-09-02-Spring-XML配置/</id>
     <published>2016-09-02T14:00:09.000Z</published>
     <updated>2017-02-08T07:31:02.000Z</updated>
     
@@ -455,17 +455,17 @@
     
     </summary>
     
-      <category term="框架和包" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
+      <category term="框架和包" scheme="http://peterjiao.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
     
     
-      <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
+      <category term="Spring" scheme="http://peterjiao.com/tags/Spring/"/>
     
   </entry>
   
   <entry>
     <title>Spring--Bean生命周期</title>
-    <link href="http://yoursite.com/2016/09/02/2016-09-02-Spring--Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>http://yoursite.com/2016/09/02/2016-09-02-Spring--Bean的生命周期/</id>
+    <link href="http://peterjiao.com/2016/09/02/2016-09-02-Spring--Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>http://peterjiao.com/2016/09/02/2016-09-02-Spring--Bean的生命周期/</id>
     <published>2016-09-02T13:18:30.000Z</published>
     <updated>2017-02-08T07:30:22.000Z</updated>
     
@@ -486,17 +486,17 @@
     
     </summary>
     
-      <category term="框架和包" scheme="http://yoursite.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
+      <category term="框架和包" scheme="http://peterjiao.com/categories/%E6%A1%86%E6%9E%B6%E5%92%8C%E5%8C%85/"/>
     
     
-      <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
+      <category term="Spring" scheme="http://peterjiao.com/tags/Spring/"/>
     
   </entry>
   
   <entry>
     <title>集合</title>
-    <link href="http://yoursite.com/2016/08/11/2016-08-11-Java-Collection/"/>
-    <id>http://yoursite.com/2016/08/11/2016-08-11-Java-Collection/</id>
+    <link href="http://peterjiao.com/2016/08/11/2016-08-11-Java-Collection/"/>
+    <id>http://peterjiao.com/2016/08/11/2016-08-11-Java-Collection/</id>
     <published>2016-08-11T14:16:05.000Z</published>
     <updated>2017-02-08T07:32:16.000Z</updated>
     
@@ -517,17 +517,17 @@
     
     </summary>
     
-      <category term="集合" scheme="http://yoursite.com/categories/%E9%9B%86%E5%90%88/"/>
+      <category term="集合" scheme="http://peterjiao.com/categories/%E9%9B%86%E5%90%88/"/>
     
     
-      <category term="集合" scheme="http://yoursite.com/tags/%E9%9B%86%E5%90%88/"/>
+      <category term="集合" scheme="http://peterjiao.com/tags/%E9%9B%86%E5%90%88/"/>
     
   </entry>
   
   <entry>
     <title>LearnGit</title>
-    <link href="http://yoursite.com/2016/01/19/2016-01-19-LearnGit/"/>
-    <id>http://yoursite.com/2016/01/19/2016-01-19-LearnGit/</id>
+    <link href="http://peterjiao.com/2016/01/19/2016-01-19-LearnGit/"/>
+    <id>http://peterjiao.com/2016/01/19/2016-01-19-LearnGit/</id>
     <published>2016-01-19T09:06:05.000Z</published>
     <updated>2016-12-12T09:04:22.000Z</updated>
     
@@ -548,10 +548,10 @@
     
     </summary>
     
-      <category term="Tools" scheme="http://yoursite.com/categories/Tools/"/>
+      <category term="Tools" scheme="http://peterjiao.com/categories/Tools/"/>
     
     
-      <category term="Git Tools" scheme="http://yoursite.com/tags/Git-Tools/"/>
+      <category term="Git Tools" scheme="http://peterjiao.com/tags/Git-Tools/"/>
     
   </entry>
   
