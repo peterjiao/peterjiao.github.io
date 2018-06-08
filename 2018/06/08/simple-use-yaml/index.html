@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> simple-use-yaml · null</title><meta name="description" content="simple-use-yaml - Peter Jiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://peterjiao.com/atom.xml"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/peterjiao" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">simple-use-yaml</h1><div class="post-info">Jun 8, 2018</div><div class="post-content"><p>在YAML快速入门[<a href="https://www.jianshu.com/p/97222440cd08]中，我们已经简单介绍了YAML的语法，本节中主要介绍YAML的配置读取。" target="_blank" rel="noopener">https://www.jianshu.com/p/97222440cd08]中，我们已经简单介绍了YAML的语法，本节中主要介绍YAML的配置读取。</a></p>
+<p>目前有很多可以生成和解析YAML的第三方工具，常见的，如SnakeYaml，jYaml，Jackson等，但是不同的工具功能还是差距较大，比如jYaml就不支持合并(&lt;&lt;)和(—)操作。我们下面来看看Springboot使用的SnakeYaml的基本使用方式。</p>
+<p>简介<br>SnakeYaml是一个完整的YAML1.1规范Processor，支持UTF-8/UTF-16，支持Java对象的序列化/反序列化，支持所有YAML定义的类型（map,omap,set,常量，具体参考<a href="http://yaml.org/type/index.html）。" target="_blank" rel="noopener">http://yaml.org/type/index.html）。</a></p>
+<p>快速使用<br>要使用SnakeYaml，首先引入maven依赖：</p>
+<p><dependency><br>    <groupid>org.yaml</groupid><br>    <artifactid>snakeyaml</artifactid><br>    <version>1.17</version><br></dependency><br>我们来完成一个最简单的yaml解析例子：</p>
+<p>@Test<br>public void testLoad() {<br>    String yamlStr = “key: hello yaml”;<br>    Yaml yaml = new Yaml();<br>    Object ret = yaml.load(yamlStr);<br>    System.out.println(ret);<br>}<br>结果输出：</p>
+<p>{key=hello yaml}<br>简介解释：<br>1，使用Yaml类，创建一个Yaml对象，所有的解析操作都是从这个对象开始；<br>2，声明了一个yaml的字符串（当然也可以使用yaml文档等），定义了一个对象：key: hello yaml；<br>3，使用Yaml对象的load方法 public Object load(String yaml)加载一段yaml字符串，返回解析之后的对象；<br>我们通过打印ret的类型：</p>
+<p>System.out.println(ret.getClass().getSimpleName());<br>可以看到，实际创建的是一个Map：LinkedHashMap。</p>
+<p>load/loadAll/loadAs 方法使用<br>Yaml的load方法可以传入多种参数类型：<br>public Object load(String yaml)<br>public Object load(InputStream io)<br>public Object load(Reader io)</p>
+<p>三个方法都是通过传入的不同类型的内容，解析得到结果对象。需要注意一点的是，SnakeYaml通过读入的内容是否包含BOM头来判断输入流的编码格式。如果不包含BOM头，默认为UTF-8编码。</p>
+<p>下面再来看一个解析案例，这次使用yaml文件的方式。首先创建一个yaml文件：</p>
+<p>#test.yaml</p>
+<ul>
+<li>value1</li>
+<li>value2</li>
+<li>value3<br>很明显结果应该是一个List集合，把该文件放到resources下：</li>
+</ul>
+<p>@Test<br>public void testType() throws Exception {<br>    Yaml yaml = new Yaml();<br>    List<string> ret = (List<string>)yaml.load(this.getClass().getClassLoader()<br>            .getResourceAsStream(“test.yaml”));<br>    System.out.println(ret);<br>}<br>打印结果：</string></string></p>
+<p>[value1, value2, value3]<br>如果需要加载的yaml文件中包含多个yaml片段，则可以使用loadAll方法加载所有的yaml内容。比如有如下一个yaml文件：</p>
+<p>#test2.yaml<br>sample1:<br>    r: 10<br>sample2:<br>    other: haha<br>sample3:<br>    x: 100<br>    y: 100<br>这个yaml文件内容很明显是一个对象(或者map)，对象的每一个属性对应的又是一个对象。要加载这个yaml文件，代码应该是：</p>
+<p>@Test<br>public void test2() throws Exception {<br>    Yaml yaml = new Yaml();<br>    Map&lt;String, Object&gt; ret = (Map&lt;String, Object&gt;) yaml.load(this<br>            .getClass().getClassLoader().getResourceAsStream(“test2.yaml”));<br>    System.out.println(ret);<br>}<br>打印结果：</p>
+<p>{sample1={r=10}, sample2={other=haha}, sample3={x=100, y=100}}<br>如果我们稍微修改一下test2.yaml文件：</p>
+<hr>
+<p>sample1: </p>
+<pre><code>r: 10
+</code></pre><hr>
+<p>sample2:</p>
+<pre><code>other: haha
+</code></pre><hr>
+<p>sample3:<br>    x: 100<br>    y: 100<br>按照YAML规范，这应该是三个yaml配置片段了。那么如果再使用上面的代码解析，就会报错：</p>
+<p>image.png</p>
+<p>可以看到，load方法无法处理—标记。</p>
+<p>这种时候只能使用loadAll方法解析：<br>public Iterable<object> loadAll(String yaml)<br>public Iterable<object> loadAll(InputStream yaml)<br>public Iterable<object> loadAll(Reader yaml)</object></object></object></p>
+<p>可以看到，loadAll方法返回的是一个Object的迭代对象，那么其中的每一个Object就是每一个yaml片段解析出来的对象：</p>
+<p>@Test<br>public void test3() throws Exception {<br>    Yaml yaml = new Yaml();<br>    Iterable<object> ret = yaml.loadAll(this.getClass().getClassLoader()<br>            .getResourceAsStream(“test2.yaml”));<br>    for (Object o : ret) {<br>        System.out.println(o);<br>    }<br>}<br>打印的结果为：</object></p>
+<p>{sample1={r=10}}<br>{sample2={other=haha}}<br>{sample3={x=100, y=100}}<br>可以看到，test2.yaml被解析成了三个Map。<br>这里需要注意一点的是，SnakeYaml是在每一次遍历的时候(即调用Iteratable的forEach方法的时候)，才会去解析下一个—分割的yaml片段。</p>
+<p>上面所有的实例，都是把yaml配置转化成Map或者Collection，如果我们想直接把yaml配置转成指定对象呢？下面我们通过三个示例来简单看一下：</p>
+<p>#address.yaml<br>lines: |<br>  458 Walkman Dr.<br>  Suite #292<br>city: Royal Oak<br>state: MI<br>postal: 48046<br>有指定的Address模型，我们想把address.yaml内容直接转化成Address对象：</p>
+<p>@Setter<br>@Getter<br>@ToString<br>public class Address {<br>    private String lines;<br>    private String city;<br>    private String state;<br>    private Integer postal;<br>}<br>只需要使用Yaml的loadAs方法即可：</p>
+<p>@Test<br>public void testAddress() throws Exception {<br>    Yaml yaml = new Yaml();<br>    Address ret = yaml.loadAs(this.getClass().getClassLoader()<br>            .getResourceAsStream(“address.yaml”), Address.class);<br>    Assert.assertNotNull(ret);<br>    Assert.assertEquals(“MI”, ret.getState());<br>}<br>loadAs方法的第二个参数类型，即是要创建的用于包装yaml数据的类型。<br>这是第一种方式，对于常见的对象包装其实已经完全足够，我们来看下第二种方式，第二种方式也比较简单，即使用YAML的!!类型强转来完成。这次的类型再复杂一些，我们创建一个Person类型：</p>
+<p>@Setter<br>@Getter<br>@ToString<br>public class Person {</p>
+<pre><code>private String given;
+private String family;
+private Address address;
+</code></pre><p>}<br>这个Person类型包含了我们上一个示例中的Address类型，来添加一个yaml文件：</p>
+<p>#person.yaml<br>— !!cn.wolfcode.yaml.demo.domain.Person<br>given  : Chris<br>family : Dumars<br>address:<br>    lines: |<br>        458 Walkman Dr.<br>        Suite #292<br>    city    : Royal Oak<br>    state   : MI<br>    postal  : 48046<br>注意第一行，我们使用—代表一个yaml文档的开始，并且立刻使用!!告诉下面的类型为cn.wolfcode.yaml.demo.domain.Person。这样配置之后，我们就可以直接使用load方法来加载对象了：</p>
+<p>@Test<br>public void testPerson() throws Exception {<br>    Yaml yaml = new Yaml();<br>    Person ret = (Person) yaml.load(this.getClass().getClassLoader()<br>            .getResourceAsStream(“person.yaml”));<br>    Assert.assertNotNull(ret);<br>    Assert.assertEquals(“MI”, ret.getAddress().getState());<br>}<br>我们直接使用load方法加载对象，并直接转化成Person对象即可。</p>
+<p>第三种方式，其实是第一种loadAs方法的实现原理，即在创建Yaml对象时，配置用于映射文档的root构造器。首先去掉person.yaml第一行配置：</p>
+<p>#person.yaml<br>given  : Chris<br>family : Dumars<br>address:<br>    lines: |<br>        458 Walkman Dr.<br>        Suite #292<br>    city    : Royal Oak<br>    state   : MI<br>    postal  : 48046<br>实现代码：</p>
+<p>@Test<br>public void testPerson2() {<br>    Yaml yaml = new Yaml(new Constructor(Person.class));<br>    Person ret = (Person) yaml.load(this.getClass().getClassLoader()<br>            .getResourceAsStream(“person.yaml”));<br>    Assert.assertNotNull(ret);<br>    Assert.assertEquals(“MI”, ret.getAddress().getState());<br>}<br>可以看到，我们在创建Yaml对象的时候，传入了一个new Constructor(Person.class)对象，即指定了，yaml文件的root对象使用Person类型。注意这个Constructor是org.yaml.snakeyaml.constructor.Constructor对象。</p>
+<p>SnakeYaml还能正确的识别集合中的类型。我们修改Person类：</p>
+<p>@Setter<br>@Getter<br>@ToString<br>public class Person {</p>
+<pre><code>private String given;
+private String family;
+private List&lt;Address&gt; address;
+</code></pre><p>}<br>在这里，address属性变成了一个类型安全的List，修改我们的person.yaml文件：</p>
+<p>— !!cn.wolfcode.yaml.demo.domain.Person<br>given  : Chris<br>family : Dumars<br>address:</p>
+<pre><code>- 
+  lines: 458 Walkman
+  city    : Royal Oak
+  state   : MI
+  postal  : 48046
+- 
+  lines: 459 Walkman
+  city    : Royal Oak
+  state   : MI
+  postal  : 48046
+</code></pre><p>我们的address属性由两个address构成，我们来看下这种情况下，是否能正确的识别：</p>
+<p>@Test<br>public void testTypeDesc(){<br>    Yaml yaml = new Yaml(new Constructor(Person.class));<br>    Person ret = (Person) yaml.load(this.getClass().getClassLoader()<br>            .getResourceAsStream(“person.yaml”));<br>    System.out.println(ret);<br>}<br>我们来看下输出：<br>Person(given=Chris, family=Dumars, address=[Address(lines=458 Walkman, city=Royal Oak, state=MI, postal=48046), Address(lines=459 Walkman, city=Royal Oak, state=MI, postal=48046)])<br>可以看到，确实正确的识别到了address集合中的Address类型。</p>
+<p>如果要明确数据类型，可以使用TypeDescription来描述具体的数据类型：</p>
+<p>@Test<br>public void testTypeDesc() {<br>    Constructor cons = new Constructor(Person.class);<br>    TypeDescription td = new TypeDescription(Person.class);<br>    td.putListPropertyType(“address”, Address.class);<br>    cons.addTypeDescription(td);</p>
+<pre><code>Yaml yaml = new Yaml();
+Person ret = (Person) yaml.load(this.getClass().getClassLoader()
+        .getResourceAsStream(&quot;person.yaml&quot;));
+System.out.println(ret);
+</code></pre><p>}<br>可以看到，首先创建了一个Person类型的构造器用于映射yaml文档根类型，接着创建了一个TypeDescription，并传入Person类型，代表这个TypeDescription是用来描述Person类型的结构，然后通过putListPropertyType(propertName,propertyType)来指定Person类型的address属性集合中的类型为Address类型，最后将这个类型描述注册到构造器描述中。<br>TypeDescription类型最常用的两个方法分别是：</p>
+<p>public void putListPropertyType(String property, Class&lt;? extends Object&gt; type)<br>public void putMapPropertyType(String property, Class&lt;? extends Object&gt; key,<br>        Class&lt;? extends Object&gt; value)<br>分别用于限制List集合属性类型和Map集合属性类型，当然，Map类型需要分别指定key和value的值类型。</p>
+<p>dump入门<br>上面简单的介绍了snakeYaml用于yaml文件的解析，下面简单通过几个例子看看怎么使用snakeYaml生成yaml文件。当然，对于yaml来说，更多的时候是作为配置文件存在。</p>
+<p>首先我们来看一个简单的生成yaml格式字符串的例子：</p>
+<p>@Test<br>public void testDump1() {<br>    Map&lt;String, Object&gt; obj = new HashMap&lt;String, Object&gt;();<br>    obj.put(“key1”, “value1”);<br>    obj.put(“key2”, 123);</p>
+<pre><code>Yaml yaml = new Yaml();
+StringWriter sw = new StringWriter();
+yaml.dump(obj, sw);
+System.out.println(sw.toString());
+</code></pre><p>}<br>结果输出：</p>
+<p>{key1: value1, key2: 123}<br>代码非常简单，直接使用Yaml的dump方法，就可以把一个对象输出到一个Writer中。我们简单的看一下dump方法的重载：</p>
+<p>image.png</p>
+<p>非常明确，dump用于输出一个对象，而dumpAll和loadAll方法对应，可以输出一组对象。</p>
+<p>下面我们来测试一个自定义对象的输出：</p>
+<p>@Test<br>public void testDump2() {<br>    Address adr = new Address();<br>    adr.setCity(“Royal Oak”);<br>    adr.setLines(“458 Walkman”);<br>    adr.setPostal(48046);<br>    adr.setState(“MI”);</p>
+<pre><code>Yaml yaml = new Yaml();
+StringWriter sw = new StringWriter();
+yaml.dump(adr, sw);
+System.out.println(sw.toString());
+</code></pre><p>}<br>输出结果为：<br>!!cn.wolfcode.yaml.demo.domain.Address {city: Royal Oak, lines: 458 Walkman, postal: 48046,<br>state: MI}</p>
+<p>接下来再来演示一个输出多个对象的情况：</p>
+<p>@Test<br>public void testDump3() {<br>    Address adr = new Address();<br>    adr.setCity(“Royal Oak”);<br>    adr.setLines(“458 Walkman”);<br>    adr.setPostal(48046);<br>    adr.setState(“MI”);</p>
+<pre><code>Address adr2 = new Address();
+adr2.setCity(&quot;Royal Oak&quot;);
+adr2.setLines(&quot;459 Walkman&quot;);
+adr2.setPostal(48046);
+adr2.setState(&quot;MI&quot;);
+
+List&lt;Address&gt; target=new ArrayList&lt;&gt;();
+target.add(adr);
+target.add(adr2);
+
+Yaml yaml = new Yaml();
+StringWriter sw = new StringWriter();
+yaml.dumpAll(target.iterator(), sw);
+System.out.println(sw.toString());
+</code></pre><p>}<br>输出结果为：</p>
+<p>!!cn.wolfcode.yaml.demo.domain.Address {city: Royal Oak, lines: 458 Walkman, postal: 48046,<br>state: MI}<br>— !!cn.wolfcode.yaml.demo.domain.Address {city: Royal Oak, lines: 459 Walkman, postal: 48046,<br>state: MI}<br>符合预期。</p>
+<p>当然，关于dump方法的更多使用，比如设置生成样式的DumperOptions，设置Tag格式的Representer等更高级一些的需求，大家可以查看SnakeYaml的开发文档：<a href="https://bitbucket.org/asomov/snakeyaml/wiki/Documentation" target="_blank" rel="noopener">https://bitbucket.org/asomov/snakeyaml/wiki/Documentation</a></p>
+<p>链接：<a href="https://www.jianshu.com/p/d8136c913e52" target="_blank" rel="noopener">https://www.jianshu.com/p/d8136c913e52</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/06/08/class-loader/" class="next">next_post</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://peterjiao.com">Peter Jiao</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

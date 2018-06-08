@@ -1,0 +1,15 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> class_loader · null</title><meta name="description" content="class_loader - Peter Jiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://peterjiao.com/atom.xml"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/peterjiao" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">class_loader</h1><div class="post-info">Jun 8, 2018</div><div class="post-content"><p>#Class<t></t></p>
+<blockquote>
+<p>Class#getResource(String name)<br>根据 name 是否以’/‘ 开头，分两种情况：</p>
+<ol>
+<li>不以／开头。则将当前Class的package 作为指定name 的前path， 最终拼接 path+’/‘+name.replaceAll(“.”,”/“)。</li>
+<li>以／开头，则不做任何替换。 所以，传入的name 必须是以／开头，且name应当是以／作为分隔符的而不是.作为分隔符。 含义就是，查找classpath 下指定路径的文件存在。</li>
+</ol>
+</blockquote>
+<p>然后调用 ClassLoader#getResource(String newName)</p>
+<p>#ClassLoader</p>
+<blockquote>
+<p>ClassLoader#getResource(String name)<br>委托机制，<br>会先使用BootstrapClassLoader<br>然后 ExtClassLoader<br>然后 AppClassLoader<br>进行查找指定name 文件的操作。 </p>
+</blockquote>
+<p>应用程序的path 是在AppClassLoader 的path中。<br>可知，name 应该是以／为分隔符的， 相当于是找文件，所以要以当前操作系统分隔符。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/06/08/simple-use-yaml/" class="prev">prev_post</a><a href="/2018/05/07/why-byte-is-8-bit/" class="next">next_post</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://peterjiao.com">Peter Jiao</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

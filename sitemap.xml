@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://peterjiao.com/2018/06/08/simple-use-yaml/</loc>
+    
+    <lastmod>2018-06-08T10:36:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/06/08/class-loader/</loc>
+    
+    <lastmod>2018-06-08T08:29:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/05/07/why-byte-is-8-bit/</loc>
+    
+    <lastmod>2018-05-07T03:07:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/04/23/static-prepare-init/</loc>
+    
+    <lastmod>2018-04-23T08:46:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/04/16/resource-beautiful/</loc>
+    
+    <lastmod>2018-04-16T11:10:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/04/12/last-recursion/</loc>
+    
+    <lastmod>2018-04-12T09:06:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/04/11/git-multi-person/</loc>
+    
+    <lastmod>2018-04-11T09:23:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/04/10/static-language-and-dynamic-language/</loc>
+    
+    <lastmod>2018-04-10T08:07:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://peterjiao.com/2018/04/10/%E5%B0%8F%E8%A7%A3%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/</loc>
+    
+    <lastmod>2018-04-10T03:32:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://peterjiao.com/2016/12/12/2016-12-12-%E6%B5%81--Java%20IO,NIO,AIO:%20Netty/</loc>
     
     <lastmod>2018-04-04T06:37:49.000Z</lastmod>
