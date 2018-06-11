@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://peterjiao.com/2018/04/16/resource-beautiful/</loc>
+    
+    <lastmod>2018-06-11T07:10:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://peterjiao.com/2018/06/08/simple-use-yaml/</loc>
     
     <lastmod>2018-06-08T10:36:34.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://peterjiao.com/2018/04/23/static-prepare-init/</loc>
     
     <lastmod>2018-04-23T08:46:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://peterjiao.com/2018/04/16/resource-beautiful/</loc>
-    
-    <lastmod>2018-04-16T11:10:33.000Z</lastmod>
     
   </url>
   
